@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Consumo de api'),
+        title: const Text('Consumo de api'),
       ),
       body: AnimatedBuilder(
         animation: Listenable.merge([store.isLoading, store.erro, store.state]),

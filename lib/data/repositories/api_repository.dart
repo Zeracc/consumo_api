@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:api/data/http/exceptions.dart';
 import 'package:api/data/http/http_client.dart';
 import 'package:api/data/models/api.dart';
-import 'package:http/http.dart';
 
 abstract class IApiRepository {
   Future <List<ApiModel>> getLayout();
@@ -24,14 +23,14 @@ class ApiRepository implements IApiRepository{
 
       final body = jsonDecode(response.body);
 
-      body['name'].map((item){
+      body['products'].map((item){
         final ApiModel model = ApiModel.fromMap(item);
           apis.add(model);
         
       }).toList();
       return apis;   
    
-   } else if (response.statusCode ==404){
+   } else if (response.statusCode == 404){
     throw NotFoundException('A url informada não é válida');
    } else {
     throw Exception('Não foi possível carregar os layouts');

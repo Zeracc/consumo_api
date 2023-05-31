@@ -11,9 +11,9 @@ class ApiModel {
 
   factory ApiModel.fromMap(Map<String, dynamic> map){
     return ApiModel(
-      name: map['name'], 
-      color: map['color'],
-      style: map['style']) 
+      name: map['name'] as String, 
+      color: map['color'] as String,
+      style: map['style'] as String) 
       ;
   }
 
